@@ -12,4 +12,3 @@ public interface ICapacitacionRepository extends JpaRepository<Capacitacion, Int
     @Query("SELECT c FROM Capacitacion c ORDER BY c.id DESC")
     List<Capacitacion> findUltimasTresCapacitaciones();
 }
-

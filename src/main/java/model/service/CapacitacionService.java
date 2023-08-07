@@ -37,4 +37,3 @@ public class CapacitacionService {
         capacitacionRepository.save(c);
     }
 }
-
