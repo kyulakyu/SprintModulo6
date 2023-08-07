@@ -38,9 +38,8 @@ public class Usuario  {
 	}
 
 	// se crea el constructor con todos los atributos de la clase
-	public Usuario(int id, String nombre, String fechaNacimiento, int run, String tipo) {
+	public Usuario(String nombre, String fechaNacimiento, int run, String tipo) {
 		super();
-		this.id = id;
 		this.tipo = tipo;
 		this.nombre = nombre;
 		this.fechaNacimiento = fechaNacimiento;

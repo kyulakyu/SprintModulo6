@@ -14,7 +14,7 @@
 			access="hasAnyAuthority('ROLE_cliente')" />
 		<intercept-url pattern="/ListarCapacitaciones"
 			access="hasAnyAuthority('ROLE_cliente')" />
-		<intercept-url pattern="/ListarUsuarios"
+		<intercept-url pattern="/ListarUsuariosConId"
 			access="hasAnyAuthority('ROLE_administrativo')" />
 		<intercept-url pattern="/CrearUsuario"
 			access="hasAnyAuthority('ROLE_administrativo')" />
@@ -24,10 +24,6 @@
 			access="hasAnyAuthority('ROLE_administrativo')" />
 		<intercept-url pattern="/logout" access="permitAll" /> <!-- Permitir acceso a todos -->
 		<intercept-url pattern="/" access="permitAll" />
-		<intercept-url pattern="/api/capacitaciones"
-			access="hasAnyAuthority('ROLE_cliente')" />
-		<intercept-url pattern="/api/clientes"
-			access="hasAnyAuthority('ROLE_administrativo')" />
 		<form-login login-page="/login"
 			authentication-failure-url="/error" username-parameter="username"
 			password-parameter="password" />
@@ -38,13 +34,13 @@
 
 	<!-- Configuración de autenticación -->
 	<authentication-manager>
-		<authentication-provider>
-			<password-encoder hash="bcrypt" />
-			<jdbc-user-service data-source-ref="ds"
-				users-by-username-query="select user as username, password, 1 as enable from login where user = ?"
-				authorities-by-username-query="select user as username, rol as authority from login where user= ?" />
-
-		</authentication-provider>
-	</authentication-manager>
+        <authentication-provider>
+            <password-encoder hash="bcrypt"/>
+            <jdbc-user-service data-source-ref="ds"
+            users-by-username-query ="select user as username, password, 1 as enable from login where user = ?"
+            authorities-by-username-query="select user as username, rol as authority from login where user= ?"/>
+           
+        </authentication-provider>
+    </authentication-manager>
 
 </beans:beans>
