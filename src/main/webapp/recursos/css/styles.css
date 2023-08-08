@@ -16,6 +16,14 @@ body img {
 	height: auto;
 }
 
+body {
+	background-image: url("/modulo6/res/img/Imagen2.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	/* Centrar el fondo */
+}
+
 p {
 	margin-top: 40px;
 	margin-bottom: 20px;
@@ -60,24 +68,30 @@ label {
 }
 
 .contacto {
-
-	padding: 20px;
-	text-align: justify;
-	margin-top: 110px;
-	margin-left: 115px;
-	margin-right: 115px;
-	background-color: rgba(236, 247, 255, 0.5);
+    padding: 20px;
+    text-align: justify;
+    margin-top: 110px;
+    margin-left: 115px;
+    margin-right: 115px;
+    background-color: rgba(236, 247, 255, 0.5);
+    display: flex;
+    justify-content: center; /* Puedes agregar esto si aún no lo tienes */
 }
 
 .boton-enviar {
-	text-align: center;
-	border: 2px solid black;
-	font-size: 18px;
-	/* Tamaño de fuente */
-	font-weight: bold;
-	/* Negrita */
-	padding: 10px 20px;
-	/* Espaciado interno del botón */
+    text-align: center;
+    border: 2px solid black;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Estilos para centrar el div contenedor */
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
 }
 
 input[type="text"],
@@ -152,28 +166,98 @@ textarea {
 	/* Espacio para evitar que el footer tape el contenido */
 }
 
+/* Estilos específicos para el formulario */
+body.prueba {
+	background-image: url("/modulo6/res/img/imagen3.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	/* Centrar el fondo */
+}
+
+.form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 20px;
+	text-align: justify;
+	background-color: transparent;
+	/* Fondo transparente */
+	margin-top: 80px;
+	margin-left: 115px;
+	margin-right: 115px;
+}
+
+/* Estilos específicos para el formulario de capacitaciones*/
+body.capacitacion {
+	background-image: url("/modulo6/res/img/imagen3.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	/* Centrar el fondo */
+}
+
+/* Estilos específicos para el formulario de contacto*/
+body.contacto {
+	background-image: url("/modulo6/res/img/imagen5.jpeg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	/* Centrar el fondo */
+}
+
+/* Estilo para todos los input y textarea */
+input[type="text"],
+input[type="number"],
+textarea {
+	width: 100%;
+	/* Ocupa el 100% del ancho disponible */
+	padding: 8px;
+	/* Añade un poco de espacio alrededor del contenido */
+	box-sizing: border-box;
+	/* Incluye el padding en el ancho total */
+	margin-bottom: 10px;
+	/* Agrega un margen inferior para separar los campos */
+}
+
+/* Estilo específico para el select */
+select {
+	width: 100%;
+	padding: 8px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+}
+
 footer {
 	margin-top: -80px;
 	/* Desplazamiento hacia abajo para mantener el footer debajo del contenido */
 }
 
-	/* Modificación para el h1 en el formulario de contacto */
-	.formulario-contacto h1.tituloContacto {
-		margin-top: 40px;
-		/* Ajustamos el margen superior */
-		margin-bottom: 20px;
-		/* Ajustamos el margen inferior */
+/* Modificación para asegurar que el contenido flote debajo del logo en pantallas pequeñas */
+@media (max-width: 576px) {
+
+	.formulario-contacto .col-md-4,
+	.formulario-contacto .col-md-6 {
+		order: 0;
 	}
 
-	/* Modificación para asegurar que el contenido flote debajo del logo en pantallas pequeñas */
-	@media (max-width: 576px) {
-
-		.formulario-contacto .col-md-4,
-		.formulario-contacto .col-md-6 {
-			order: 0;
-		}
-
-		.formulario-contacto .content-container {
-			margin-top: 20px;
-		}
+	.formulario-contacto .content-container {
+		margin-top: 20px;
 	}
+}
+
+@media (max-width: 768px) {
+	.prueba {
+		background-size: contain;
+		background-position: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.prueba {
+		background-size: contain;
+		background-position: center;
+	}
+}

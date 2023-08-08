@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.HashMap"%>
 <%@ page import="model.entity.Usuario"%>
@@ -33,32 +34,35 @@
 		<form id="tipoForm" action="ListarUsuarios" method="get">
 			<label for="tipo">Selecciona un Tipo:</label> <select id="tipo"
 				name="tipo" onchange="document.getElementById('tipoForm').submit();">
-				<option value="todos">Todos</option>
+				<option value="todos">Seleccione</option>
 				<option value="Cliente">Cliente</option>
 				<option value="Profesional">Profesional</option>
 				<option value="Administrativo">Administrativo</option>
 			</select>
 		</form>
-		<% 
-if (request.getAttribute("listarUsuarios") != null) {
-    String tipoSeleccionado = request.getParameter("tipo");
-    if (tipoSeleccionado == null || tipoSeleccionado.isEmpty()) {
-        tipoSeleccionado = "todos"; // Establece un valor predeterminado si no se proporciona el parámetro "tipo"
-    }
-    HashMap<String, List<? extends Usuario>> usuariosMap = (HashMap<String, List<? extends Usuario>>) request.getAttribute("listarUsuarios");
-    List<? extends Usuario> usuarios = usuariosMap.get(tipoSeleccionado);
-%>
+		<%
+		if (request.getAttribute("listarUsuarios") != null) {
+			String tipoSeleccionado = request.getParameter("tipo");
+			if (tipoSeleccionado == null || tipoSeleccionado.isEmpty()) {
+				tipoSeleccionado = "todos"; // Establece un valor predeterminado si no se proporciona el parámetro "tipo"
+			}
+			HashMap<String, List<? extends Usuario>> usuariosMap = (HashMap<String, List<? extends Usuario>>) request
+			.getAttribute("listarUsuarios");
+			List<? extends Usuario> usuarios = usuariosMap.get(tipoSeleccionado);
+		%>
 
 
 		<table id="tablaUsuarios" class="table table-striped">
 			<thead>
 				<tr>
-					<% if (tipoSeleccionado.equals("todos")) { %>
+					<%
+					if (tipoSeleccionado.equals("Cliente")) {
+					%>
 					<th>Usuario</th>
 					<th>Tipo</th>
 					<th>F. nacimiento</th>
 					<th>Run</th>
-					<% } else if (tipoSeleccionado.equals("Cliente")) { %>
+					<%-- <% } else if (tipoSeleccionado.equals("Cliente")) { %> --%>
 					<th>Rut</th>
 					<th>Nombre</th>
 					<th>Apellidos</th>
@@ -68,39 +72,47 @@ if (request.getAttribute("listarUsuarios") != null) {
 					<th>Direccion</th>
 					<th>Comuna</th>
 					<th>Edad</th>
-					<% } else if (tipoSeleccionado.equals("Profesional")) { %>
+					<th>Editar</th>
+					<%
+					} else if (tipoSeleccionado.equals("Profesional")) {
+					%>
 					<th>Usuario</th>
 					<th>Tipo</th>
 					<th>F. nacimiento</th>
 					<th>Run</th>
 					<th>Titulo</th>
 					<th>F. Ingreso</th>
-					<% } else if (tipoSeleccionado.equals("Administrativo")) { %>
+					<th>Editar</th>
+					<%
+					} else if (tipoSeleccionado.equals("Administrativo")) {
+					%>
 					<th>Usuario</th>
 					<th>Tipo</th>
 					<th>F. nacimiento</th>
 					<th>Run</th>
 					<th>Area</th>
 					<th>Experiencia P.</th>
-					<% } %>
 					<th>Editar</th>
+					<%
+					}
+					%>
 				</tr>
 			</thead>
 			<tbody>
 				<%
 				if (usuarios != null) {
-				    for (Usuario usuario : usuarios) {
-				        if (tipoSeleccionado.equals("Cliente") || (tipoSeleccionado.equals("Cliente") && usuario instanceof Cliente)) {
-				            Cliente cliente = (Cliente) usuario;
+					for (Usuario usuario : usuarios) {
+						if (tipoSeleccionado.equals("Cliente") || (tipoSeleccionado.equals("Cliente") && usuario instanceof Cliente)) {
+					Cliente cliente = (Cliente) usuario;
 				%>
 				<tr>
-					
+
 					<td><%=cliente.getNombre()%></td>
 					<td><%=cliente.getTipo()%></td>
 					<td><%=cliente.getFechaNacimiento()%></td>
 					<td><%=cliente.getRun()%></td>
 					<%-- Agrega aquí las demás celdas para Cliente --%>
-					
+
 					<td><%=cliente.getRut()%></td>
 					<td><%=cliente.getNombres()%></td>
 					<td><%=cliente.getApellidos()%></td>
@@ -110,60 +122,61 @@ if (request.getAttribute("listarUsuarios") != null) {
 					<td><%=cliente.getDireccion()%></td>
 					<td><%=cliente.getComuna()%></td>
 					<td><%=cliente.getEdad()%></td>
-					
+
 					<td><a
 						href="EditarUsuarioServlet?id=<%=cliente.getId()%>&tipo=Cliente">Editar</a></td>
 				</tr>
 				<%
-				        } else if (tipoSeleccionado.equals("Profesional") && usuario instanceof Profesional) {
-				            Profesional profesional = (Profesional) usuario;
-%>
+				} else if (tipoSeleccionado.equals("Profesional") && usuario instanceof Profesional) {
+				Profesional profesional = (Profesional) usuario;
+				%>
 				<tr>
-					
+
 					<td><%=profesional.getNombre()%></td>
 					<td><%=profesional.getTipo()%></td>
 					<td><%=profesional.getFechaNacimiento()%></td>
 					<td><%=profesional.getRun()%></td>
 					<%-- Agrega aquí las demás celdas para Profesional --%>
-					
+
 					<td><%=profesional.getTitulo()%></td>
 					<td><%=profesional.getFechaDeIngreso()%></td>
-					
+
 					<td><a
 						href="EditarUsuarioServlet?id=<%=profesional.getId()%>&tipo=Profesional">Editar</a></td>
 				</tr>
 				<%
-				    }  else if (tipoSeleccionado.equals("Administrativo") || (tipoSeleccionado.equals("Administrativo") && usuario instanceof Administrativo)) {
-			            Administrativo administrativo = (Administrativo) usuario;
-%>
+				} else if (tipoSeleccionado.equals("Administrativo")
+						|| (tipoSeleccionado.equals("Administrativo") && usuario instanceof Administrativo)) {
+				Administrativo administrativo = (Administrativo) usuario;
+				%>
 				<tr>
-					
+
 					<td><%=administrativo.getNombre()%></td>
 					<td><%=administrativo.getTipo()%></td>
 					<td><%=administrativo.getFechaNacimiento()%></td>
 					<td><%=administrativo.getRun()%></td>
 					<%-- Agrega aquí las demás celdas para Administrativo --%>
-					
+
 					<td><%=administrativo.getArea()%></td>
 					<td><%=administrativo.getExperienciaPrevia()%></td>
-					
+
 					<td><a
 						href="EditarUsuarioServlet?id=<%=administrativo.getId()%>&tipo=Administrativo">Editar</a></td>
 				</tr>
-				<%}
-				       	        
-			 }
-		 }
-	}
-		
-               %>
+				<%
+				}
+
+				}
+				}
+				}
+				%>
 			</tbody>
 		</table>
 
 	</div>
 	<script>
-        // Resto del código JavaScript
-    </script>
+		// Resto del código JavaScript
+	</script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
