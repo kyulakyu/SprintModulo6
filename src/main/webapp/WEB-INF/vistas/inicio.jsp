@@ -14,14 +14,7 @@
 	crossorigin="anonymous">
 	
 <%@ include file='navbar.jsp'%>
-<style>
-body {
-	background-image: url("/modulo6/res/img/Imagen2.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-⁄
-</style>
+
 </head>
 <body>
 

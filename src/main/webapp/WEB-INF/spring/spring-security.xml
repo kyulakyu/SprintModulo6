@@ -14,7 +14,13 @@
 			access="hasAnyAuthority('ROLE_cliente')" />
 		<intercept-url pattern="/ListarCapacitaciones"
 			access="hasAnyAuthority('ROLE_cliente')" />
-		<intercept-url pattern="/ListarUsuariosConId"
+		<intercept-url pattern="/ListarUsuarios"
+			access="hasAnyAuthority('ROLE_administrativo')" />
+		<intercept-url pattern="/ListarClientes"
+			access="hasAnyAuthority('ROLE_administrativo')" />
+		<intercept-url pattern="/ListarProfesionales"
+			access="hasAnyAuthority('ROLE_administrativo')" />
+		<intercept-url pattern="/ListarAdministrativos"
 			access="hasAnyAuthority('ROLE_administrativo')" />
 		<intercept-url pattern="/CrearUsuario"
 			access="hasAnyAuthority('ROLE_administrativo')" />
@@ -30,13 +36,13 @@
 
 	<!-- Configuración de autenticación -->
 	<authentication-manager>
-        <authentication-provider>
-            <password-encoder hash="bcrypt"/>
-            <jdbc-user-service data-source-ref="ds"
-            users-by-username-query ="select user as username, password, 1 as enable from login where user = ?"
-            authorities-by-username-query="select user as username, rol as authority from login where user= ?"/>
-           
-        </authentication-provider>
-    </authentication-manager>
+		<authentication-provider>
+			<password-encoder hash="bcrypt" />
+			<jdbc-user-service data-source-ref="ds"
+				users-by-username-query="select user as username, password, 1 as enable from login where user = ?"
+				authorities-by-username-query="select user as username, rol as authority from login where user= ?" />
+
+		</authentication-provider>
+	</authentication-manager>
 
 </beans:beans>
