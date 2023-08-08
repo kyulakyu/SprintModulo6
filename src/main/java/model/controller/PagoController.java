@@ -57,7 +57,7 @@ public class PagoController {
             List<Pago> PagosJson = restUsuarioController.getTresPagos();
 
             // Agregar la lista de Pagos JSON al modelo para que esté disponible en la vista listaPagosJson.jsp
-            ModelAndView jsonModelAndView = new ModelAndView("listaPagosJson");
+            ModelAndView jsonModelAndView = new ModelAndView("listarPagosJson");
             jsonModelAndView.addObject("PagosJson", PagosJson);
 
             return jsonModelAndView;

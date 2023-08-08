@@ -37,6 +37,6 @@ public class RestUsuarioController {
 
 	@RequestMapping(value = "/api/pagos", headers = "Accept=application/json")
 	public List<Pago> getTresPagos() {
-		return pagoService.getUltimosTresPagos(); // Llamar al método getCapacitaciones() del servicio CapacitacionService
+		return pagoService.getUltimosTresPagos(); // Llamar al método getPagos() del servicio PagosService
 	}
 }
