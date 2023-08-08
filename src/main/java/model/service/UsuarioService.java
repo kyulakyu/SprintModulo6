@@ -41,8 +41,19 @@ public class UsuarioService {
         return usuarioGuardado;
     }
 
-    public List<Usuario> getAllClientes() {
-        return usRepo.findByTipo("Cliente");
+    public List<Usuario> getAllUsuarios() {
+        return usRepo.findAll();
+    }
+    public List<Cliente> getAllClientes() {
+        return usRepo.findAllClientes();
+    }
+
+    public List<Administrativo> getAllAdministrativos() {
+        return usRepo.findAllAdministrativos();
+    }
+
+    public List<Profesional> getAllProfesionales() {
+        return usRepo.findAllProfesionales();
     }
 }
 

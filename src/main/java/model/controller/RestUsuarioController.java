@@ -25,7 +25,7 @@ public class RestUsuarioController {
 	private PagoService pagoService;
 
     @RequestMapping(value="/api/clientes", headers="Accept=application/json")
-    public List<Usuario> getAllClientes(){
+    public List<Cliente> getAllClientes(){
         return usuarioService.getAllClientes();
     }
     

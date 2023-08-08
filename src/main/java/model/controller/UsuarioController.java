@@ -1,6 +1,7 @@
 package model.controller;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,11 +27,32 @@ public class UsuarioController {
         return new ModelAndView("crearUsuario");
     }
     
-    @RequestMapping(path = "/ListarUsuarios", method = RequestMethod.GET)
-    public ModelAndView mostrarListarUsuario() {
-    	List<Usuario> usuarios = us.getUsuarios();
-        return new ModelAndView("listarUsuarios", "usuarios", usuarios);
-    }  
+	@RequestMapping(path = "/ListarUsuarios", method = RequestMethod.GET)
+	public ModelAndView mostrarListarUsuario(@RequestParam(required = false) String tipo) {
+		Map<String, List<? extends Usuario>> listarUsuarios = new HashMap<>();
+
+	    
+	    if (tipo == null || tipo.isEmpty() || tipo.equals("todos")) {
+	        listarUsuarios.put("Cliente", us.getAllClientes());
+	        listarUsuarios.put("Administrativo", us.getAllAdministrativos());
+	        listarUsuarios.put("Profesional", us.getAllProfesionales());
+	    } else {
+	        if (tipo.equals("Cliente")) {
+	            listarUsuarios.put("Cliente", us.getAllClientes());
+	        } else if (tipo.equals("Administrativo")) {
+	            listarUsuarios.put("Administrativo", us.getAllAdministrativos());
+	        } else if (tipo.equals("Profesional")) {
+	            listarUsuarios.put("Profesional", us.getAllProfesionales());
+	        }
+	    }
+
+	    return new ModelAndView("listarUsuarios", "listarUsuarios", listarUsuarios);
+	}
+	
+//    	ModelAndView modelAndView = new ModelAndView("listarUsuarios");
+//        modelAndView.addObject("usuarios", usuarios);
+//        return modelAndView;
+//    }  
     @RequestMapping(path = "/CrearUsuario", method = RequestMethod.POST)
     public ModelAndView crearUsuario(@RequestParam("tipo") String tipo,
                                       @RequestParam("rut") Integer rut,

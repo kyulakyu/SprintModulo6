@@ -1,11 +1,13 @@
 package model.entity;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "clientes")
+@DiscriminatorValue("cliente")
 public class Cliente extends Usuario {
 	//se crean los atributos de la clase Cliente
 
