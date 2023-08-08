@@ -32,7 +32,7 @@ public class PagoService {
 
     public void crearPagos(Pago p, String detalle) {
         // Antes de guardar la capacitación, asignamos el detalle usando el método mostrarDetalle()
-        p.setDetalle(p.mostrarDetalle());
+        p.mostrarDetalle();
         PagoRepository.save(p);
     }
 }

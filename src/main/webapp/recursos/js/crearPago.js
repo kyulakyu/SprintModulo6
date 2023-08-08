@@ -37,7 +37,7 @@ montoInput.addEventListener('input', function() {
   }
 });
 
-/*//Validar Campo fechapago
+//Validar Campo fechapago
 var fechapagoInput = document.getElementById('fechapago');
 var fechapagoValidationMessage = document.getElementById('fechapagoValidationMessage');
 
@@ -53,55 +53,6 @@ fechapagoInput.addEventListener('input', function() {
     fechapagoValidationMessage.textContent = '';
   }
 });
-*/
-
-//Validar Campo fechapago
-var fechapagoInput = document.getElementById('fechapago');
-var fechapagoValidationMessage = document.getElementById('fechapagoValidationMessage');
-
-fechapagoInput.addEventListener('input', function() {
-  var fechapagoValue = fechapagoInput.value.trim();
-  var fechapagoPattern = /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/; // Expresión regular para validar el formato DD/MM/AAAA
-
-  if (fechapagoValue === '') {
-    fechapagoValidationMessage.textContent = 'Por favor, introduzca la Fecha de Pago. Campo Obligatorio';
-  } else if (!fechapagoPattern.test(fechapagoValue)) {
-    fechapagoValidationMessage.textContent = 'Por favor, introduzca la Fecha en el formato correcto (DD/MM/AAAA).';
-  } else {
-    // Validar si la fecha es válida mediante AJAX o usando JavaScript
-    // Puedes utilizar la función setfechapago en tu formulario antes de enviar los datos.
-    var fechaParts = fechapagoValue.split('/');
-    var day = parseInt(fechaParts[0]);
-    var month = parseInt(fechaParts[1]);
-    var year = parseInt(fechaParts[2]);
-
-    if (isValidDate(day, month, year)) {
-      fechapagoValidationMessage.textContent = '';
-      // Si la fecha es válida, puedes setear el valor en el campo hidden
-      // para enviarlo al servidor en el formato correcto (YYYY-MM-DD).
-      var fechaFormateada = year + '-' + padNumber(month) + '-' + padNumber(day);
-      document.getElementById('fechapagoHidden').value = fechaFormateada;
-    } else {
-      fechapagoValidationMessage.textContent = 'La fecha ingresada no es válida.';
-    }
-  }
-});
-
-// Función para validar si la fecha es válida
-function isValidDate(day, month, year) {
-  var date = new Date(year, month - 1, day);
-  return (
-    date.getDate() === day &&
-    date.getMonth() === month - 1 &&
-    date.getFullYear() === year
-  );
-}
-
-// Función para agregar un cero delante de un número si es menor a 10
-function padNumber(number) {
-  return number < 10 ? '0' + number : number;
-}
-
 
 //Validar Campo detalle
 var detalleInput = document.getElementById('detalle');
@@ -119,7 +70,7 @@ detalleInput.addEventListener('input', function() {
   }
 });
 ///---------------------
-   // Agregar el evento submit al formulario
+/*   // Agregar el evento submit al formulario
    var formularioPago = document.getElementById('formularioPago');
    formularioPago.addEventListener('submit', function(event) {
       event.preventDefault(); // Evitar el comportamiento de envío normal del formulario
@@ -137,6 +88,6 @@ detalleInput.addEventListener('input', function() {
          }
       };
       xhr.send(formData);
-   });
+   });*/
 ///--------------------
 });
