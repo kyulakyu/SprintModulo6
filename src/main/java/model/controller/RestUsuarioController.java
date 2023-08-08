@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import model.entity.Capacitacion; // Importar la clase Capacitacion
+import model.entity.Cliente;
 import model.entity.Usuario;
 import model.entity.Pago;
 import model.service.CapacitacionService; // Importar el servicio CapacitacionService
