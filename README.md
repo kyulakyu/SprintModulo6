@@ -1,3 +1,17 @@
+Grupo 4. Integrantes:
+				Camila Fabbroni - Cinthya Caldera - Sabina Leal - Sebastian
+				Fernandez - Manuel Chavez - Juan Barrientos. Todos los derechos
+				reservados
+
+ 
+    https://github.com/cinthyaccc
+    https://github.com/CamilaF1985
+    https://github.com/kyulakyu
+    https://github.com/SebastianFdezT
+    https://github.com/ManuelChavezSalazar
+    https://github.com/JuanC4m1l0B
+    
+
 Una empresa de asesorías en prevención de riesgos necesita contar con un sistema de información
 que le permita administrar los principales procesos que se llevan a cabo en ella día a día.
 Hasta el momento se han definido las siguientes funcionalidades en el sistema:
@@ -77,7 +91,4 @@ chequeos realizados a cada cliente en
 una visita a terreno, y permite agregar
 uno nuevo, y cambiar su estado.
 
-Grupo 4. Integrantes:
-				Camila Fabbroni - Cinthya Caldera - Sabina Leal - Sebastian
-				Fernandez - Manuel Chavez - Juan Barrientos. Todos los derechos
-				reservados
+
