@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "profesionales")
 public class Profesional extends Usuario {
 	//se crean los atributos de la clase Profesional 
 	private String titulo;

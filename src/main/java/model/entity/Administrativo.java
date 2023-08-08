@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "administrativos")
 public class Administrativo extends Usuario{
 	//se crean los atributos de la clase Adiministrativo
 	private String area;

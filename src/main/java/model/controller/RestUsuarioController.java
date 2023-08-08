@@ -19,10 +19,9 @@ public class RestUsuarioController {
     @Autowired
     private CapacitacionService capacitacionService; // Inyectar el servicio CapacitacionService
 
-    @RequestMapping(value="/api/clientes", headers="Accept=application/json")
-    public List<Usuario> getAllClientes(){
-        return usuarioService.getAllClientes();
-    }
+//    @RequestMapping(value="/api/clientes", headers="Accept=application/json")
+//    public List<Usuario> getAllClientes(){
+//        return usuarioService.getAllClientes();}
     
     @RequestMapping(value="/api/capacitaciones", headers="Accept=application/json")
     public List<Capacitacion> getTresCapacitaciones(){
