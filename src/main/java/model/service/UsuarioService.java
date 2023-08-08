@@ -51,6 +51,16 @@ public class UsuarioService {
     public List<Administrativo> getAllAdministrativos() {
         return usRepo.findAllAdministrativos();
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public List<Profesional> getAllProfesionales() {
         return usRepo.findAllProfesionales();

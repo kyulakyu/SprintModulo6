@@ -1,13 +1,24 @@
 package model.entity;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "administrativos")
+@DiscriminatorValue("Administrativo")
 public class Administrativo extends Usuario{
 	//se crean los atributos de la clase Adiministrativo
+	@Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String area;
+	@Column(nullable = true)
 	private String experienciaPrevia;
 	 //se crea el constructor con todos los atributos de la clase
 	public Administrativo() {
@@ -33,6 +44,14 @@ public class Administrativo extends Usuario{
 	    }
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getExperienciaPrevia() {
 		return experienciaPrevia;
 	}
@@ -49,9 +68,7 @@ public class Administrativo extends Usuario{
 
 	//se crea metodo toString
 
-	public String toString() {
-		return super.toString() + "Adiministrativo [area=" + area + ", experienciaPrevia=" + experienciaPrevia + "]";
-	}
+	
 	
 	public void analizarUsuario() {
 		super.analizarUsuario();
