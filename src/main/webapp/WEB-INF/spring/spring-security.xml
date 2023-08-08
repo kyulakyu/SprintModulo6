@@ -18,6 +18,10 @@
 			access="hasAnyAuthority('ROLE_administrativo')" />
 		<intercept-url pattern="/CrearUsuario"
 			access="hasAnyAuthority('ROLE_administrativo')" />
+		<intercept-url pattern="/CrearPago"
+			access="hasAnyAuthority('ROLE_administrativo')" />
+		<intercept-url pattern="/ListarPagos"
+			access="hasAnyAuthority('ROLE_administrativo')" />
 		<intercept-url pattern="/logout" access="permitAll" /> <!-- Permitir acceso a todos -->
 		<intercept-url pattern="/" access="permitAll" />
 		<form-login login-page="/login"

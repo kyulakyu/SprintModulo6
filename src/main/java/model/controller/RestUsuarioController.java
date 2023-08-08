@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import model.entity.Capacitacion; // Importar la clase Capacitacion
 import model.entity.Usuario;
+import model.entity.Pago;
 import model.service.CapacitacionService; // Importar el servicio CapacitacionService
 import model.service.UsuarioService;
+import model.service.PagoService;
 
 @RestController
 public class RestUsuarioController {
@@ -19,13 +21,21 @@ public class RestUsuarioController {
     @Autowired
     private CapacitacionService capacitacionService; // Inyectar el servicio CapacitacionService
 
-//    @RequestMapping(value="/api/clientes", headers="Accept=application/json")
-//    public List<Usuario> getAllClientes(){
-//        return usuarioService.getAllClientes();}
+    @Autowired
+	private PagoService pagoService;
+
+    @RequestMapping(value="/api/clientes", headers="Accept=application/json")
+    public List<Cliente> getAllClientes(){
+        return usuarioService.getAllClientes();
+    }
     
     @RequestMapping(value="/api/capacitaciones", headers="Accept=application/json")
     public List<Capacitacion> getTresCapacitaciones(){
         return capacitacionService.getUltimasTresCapacitaciones(); // Llamar al método getCapacitaciones() del servicio CapacitacionService
     }
-}
 
+	@RequestMapping(value = "/api/pagos", headers = "Accept=application/json")
+	public List<Pago> getTresPagos() {
+		return pagoService.getUltimosTresPagos(); // Llamar al método getCapacitaciones() del servicio CapacitacionService
+	}
+}

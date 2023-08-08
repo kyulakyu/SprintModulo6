@@ -42,9 +42,10 @@
           if (request.isUserInRole("ROLE_administrativo")) {
           %>
 					<a class="nav-link" href="Contacto" style="color: white;">Contacto</a>
-					<a class="nav-link" href="ListarUsuarios" style="color: white;">Listar
-						Usuarios</a> <a class="nav-link" href="CrearUsuario"
-						style="color: white;">Crear Usuario</a>
+					<a class="nav-link" href="CrearUsuario" style="color: white;">Crear Usuario</a>
+					<a class="nav-link" href="ListarUsuarios" style="color: white;">Listar Usuarios</a> 
+					<a class="nav-link" href="CrearPago" style="color: white;">Crear Pago</a>
+					<a class="nav-link" href="ListarPagos" style="color: white;">Listar Pagos</a>
 					<form action="logout" method="post">
 						<button type="submit" class="btn btn-link" style="color: white;">Logout</button>
 					</form>
