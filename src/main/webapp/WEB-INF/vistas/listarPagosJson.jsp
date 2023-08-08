@@ -16,7 +16,7 @@
                 type: "GET",
                 dataType: "json",
                 success: function (data) {
-                    // Manipular los datos recibidos y mostrarlos en la página
+                    // Manipular los datos recibidos y mostrarlos en la pagina
                     var pago = data;
                     var pagoContainer = $("#pagoContainer");
 

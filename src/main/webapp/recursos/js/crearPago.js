@@ -69,7 +69,7 @@ detalleInput.addEventListener('input', function() {
     detalleValidationMessage.textContent = '';
   }
 });
-///--------------------- si la descoomento el formulario no funciona
+///--------------------- si la descoomento el formulario no funciona por lo que lo mantengo comentado
 /*   // Agregar el evento submit al formulario
    var formularioPago = document.getElementById('formularioPago');
    formularioPago.addEventListener('submit', function(event) {
