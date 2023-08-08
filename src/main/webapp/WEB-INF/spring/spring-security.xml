@@ -22,6 +22,12 @@
 			access="hasAnyAuthority('ROLE_administrativo')" />
 		<intercept-url pattern="/ListarPagos"
 			access="hasAnyAuthority('ROLE_administrativo')" />
+			
+		<intercept-url pattern="/CrearVisita"
+			access="hasAnyAuthority('ROLE_profesional')" />
+		<intercept-url pattern="/ListarVisitas"
+			access="hasAnyAuthority('ROLE_profesional')" />
+			
 		<intercept-url pattern="/logout" access="permitAll" /> <!-- Permitir acceso a todos -->
 		<intercept-url pattern="/" access="permitAll" />
 		<form-login login-page="/login"

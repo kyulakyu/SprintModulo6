@@ -52,6 +52,19 @@
           <%
           }
           %>
+          <%-- Verificar si el usuario tiene el rol "profesional" --%>
+          <%
+          if (request.isUserInRole("ROLE_profesional")) {
+          %>
+					<a class="nav-link" href="Contacto" style="color: white;">Contacto</a>
+					<a class="nav-link" href="CrearVisitas" style="color: white;">Crear Visitas</a>
+					<a class="nav-link" href="ListarVisitas" style="color: white;">Listar Visitas</a>
+					<form action="logout" method="post">
+						<button type="submit" class="btn btn-link" style="color: white;">Logout</button>
+					</form>
+          <%
+          }
+          %>
         </div>
       </div>
     </nav>
