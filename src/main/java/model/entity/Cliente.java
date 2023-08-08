@@ -3,6 +3,9 @@ package model.entity;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -10,7 +13,10 @@ import javax.persistence.Table;
 @DiscriminatorValue("cliente")
 public class Cliente extends Usuario {
 	//se crean los atributos de la clase Cliente
-
+@Id
+@Column(name = "id")
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private int id;
 private Integer rut;
 private String nombres;
 private String apellidos;
@@ -41,10 +47,23 @@ public Cliente(String nombre, String fechaDeNacimiento, Integer run, String tipo
 	this.edad = edad;
 }
 //se crean los metodos de acceso y modificadores de yodos los atributos
+
 public Integer getRut() {
 	return rut;
 }
 
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
+public void setRut(Integer rut) {
+	this.rut = rut;
+}
+public void setTelefono(Integer telefono) {
+	this.telefono = telefono;
+}
 public void setRut(int rut) {
     this.rut = rut;
 }

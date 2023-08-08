@@ -51,13 +51,16 @@
 			List<? extends Usuario> usuarios = usuariosMap.get(tipoSeleccionado);
 		%>
 
-
+		
 		<table id="tablaUsuarios" class="table table-striped">
 			<thead>
 				<tr>
 					<%
 					if (tipoSeleccionado.equals("Cliente")) {
 					%>
+					
+					
+					
 					<th>Usuario</th>
 					<th>Tipo</th>
 					<th>F. nacimiento</th>
@@ -76,6 +79,7 @@
 					<%
 					} else if (tipoSeleccionado.equals("Profesional")) {
 					%>
+					
 					<th>Usuario</th>
 					<th>Tipo</th>
 					<th>F. nacimiento</th>
@@ -122,10 +126,8 @@
 					<td><%=cliente.getDireccion()%></td>
 					<td><%=cliente.getComuna()%></td>
 					<td><%=cliente.getEdad()%></td>
-
-					<td><a
-						href="EditarUsuarioServlet?id=<%=cliente.getId()%>&tipo=Cliente">Editar</a></td>
-				</tr>
+					<td><a href="/modulo6/EditarCliente?id=<%=cliente.getId()%>">Editar</a></td>
+					</tr>
 				<%
 				} else if (tipoSeleccionado.equals("Profesional") && usuario instanceof Profesional) {
 				Profesional profesional = (Profesional) usuario;
@@ -141,8 +143,7 @@
 					<td><%=profesional.getTitulo()%></td>
 					<td><%=profesional.getFechaDeIngreso()%></td>
 
-					<td><a
-						href="EditarUsuarioServlet?id=<%=profesional.getId()%>&tipo=Profesional">Editar</a></td>
+					<td><a href="/modulo6/EditarProfesional?id=<%=profesional.getId()%>">Editar</a></td>
 				</tr>
 				<%
 				} else if (tipoSeleccionado.equals("Administrativo")
@@ -159,9 +160,12 @@
 
 					<td><%=administrativo.getArea()%></td>
 					<td><%=administrativo.getExperienciaPrevia()%></td>
-
-					<td><a
-						href="EditarUsuarioServlet?id=<%=administrativo.getId()%>&tipo=Administrativo">Editar</a></td>
+					
+					
+					<td><a href="/modulo6/EditarAdministrativo?id=<%=administrativo.getId()%>">Editar</a></td>
+					
+					
+					
 				</tr>
 				<%
 				}

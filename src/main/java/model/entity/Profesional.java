@@ -4,13 +4,21 @@ import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "profesionales")
 public class Profesional extends Usuario {
 	//se crean los atributos de la clase Profesional 
+	@Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String titulo;
 	private String fechaDeIngreso;
 	static Pattern patronFecha = Pattern.compile("\\d{2}/\\d{2}/\\d{4}");
@@ -25,8 +33,27 @@ public class Profesional extends Usuario {
 		this.fechaDeIngreso = fechaDeIngreso;
 	}
 	//se crean los metodos de acceso y modificadores de yodos los atributos
+	
 	public String getTitulo() {
 		return titulo;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public static Pattern getPatronFecha() {
+		return patronFecha;
+	}
+	public static void setPatronFecha(Pattern patronFecha) {
+		Profesional.patronFecha = patronFecha;
+	}
+	public static Pattern getPatronHora() {
+		return patronHora;
+	}
+	public static void setPatronHora(Pattern patronHora) {
+		Profesional.patronHora = patronHora;
 	}
 	public boolean setTitulo(String titulo) {
 		this.titulo = titulo;
