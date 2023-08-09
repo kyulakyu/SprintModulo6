@@ -1,12 +1,10 @@
 # Sprint Final M6
 
 ## Grupo 4. Integrantes: :briefcase:
+    Camila Fabbroni - Cinthya Caldera - Sabina Leal - Sebastian
+    Fernandez - Manuel Chavez - Juan Barrientos. 
 
-				Camila Fabbroni - Cinthya Caldera - Sabina Leal - Sebastian
-				Fernandez - Manuel Chavez - Juan Barrientos. Todos los derechos
-				reservados
-
- ## Repositorios
+## Repositorios
     https://github.com/kyulakyu/SprintModulo6.git (PRINCIPAL)
     https://github.com/cinthyaccc/SprintModulo6.git
     https://github.com/CamilaF1985/SprintModulo6.git
