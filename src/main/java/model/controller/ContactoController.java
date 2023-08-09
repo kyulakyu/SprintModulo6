@@ -1,26 +1,27 @@
 package model.controller;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import model.entity.Contacto;
+import model.service.ContactoService;
 
 @Controller
 public class ContactoController {
-    // Inyectar la dependencia del bean ContactoDao
-  
-   
+    @Autowired
+    private ContactoService contactoService;
 
-    /**
-     * Maneja las solicitudes que se le hacen a la raíz del sitio
-     * 
-     * @return un objeto {@link ModelAndView} con la respuesta al cliente
-     */
     @RequestMapping(path = "/Contacto", method = RequestMethod.GET)
-    public ModelAndView mostrarContacto() {
-        return new ModelAndView("contacto");
-    }
-    
-  
+    public String mostrarFormularioContacto(Model model) {
+        model.addAttribute("contacto", new Contacto()); // Prepara un objeto Contacto en el modelo
+        return "contacto";
     }
 
+    @RequestMapping(path = "/CrearContacto", method = RequestMethod.POST)
+    public String crearContacto(@ModelAttribute Contacto contacto) {
+        contactoService.crearContacto(contacto);
+        return "redirect:/";
+    }
+}

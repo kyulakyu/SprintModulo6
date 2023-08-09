@@ -30,9 +30,7 @@ public class PagoService {
         return Pagos.subList(0, Math.min(Pagos.size(), 3));
     }
 
-    public void crearPagos(Pago p, String detalle) {
-        // Antes de guardar la capacitación, asignamos el detalle usando el método mostrarDetalle()
-        p.mostrarDetalle();
+    public void crearPagos(Pago p) {
         PagoRepository.save(p);
     }
 }

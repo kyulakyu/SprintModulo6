@@ -4,11 +4,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import model.entity.Cliente;
 import model.entity.Pago;
+import model.entity.Profesional;
+import model.entity.Visita;
+import model.service.ClienteService;
 import model.service.PagoService;
 
 @Controller
@@ -16,19 +23,30 @@ public class PagoController {
 
     @Autowired
     private PagoService cs;
-
+    
     @Autowired
-    private RestUsuarioController restUsuarioController; // Inyectar el servicio RestUsuarioController
+    private ClienteService clienteService;
 
     /**
      * Maneja las solicitudes que se le hacen a la raíz del sitio
      * 
      * @return un objeto {@link ModelAndView} con la respuesta al cliente
      */
-    @RequestMapping(path = "/CrearPago", method = RequestMethod.GET)
-    public ModelAndView mostrarCrearPago() {
-        return new ModelAndView("crearPago");
-    }
+    // Crear Pago
+	/*
+	 * @RequestMapping(path = "/CrearPago", method = RequestMethod.GET) public
+	 * ModelAndView mostrarCrearPago() { return new ModelAndView("crearPago"); }
+	 */
+    
+    @GetMapping("/CrearPago")
+	public String mostrarFormularioCreacion(Model model) {
+		List<Cliente> clientes = clienteService.getClientes();
+
+		model.addAttribute("pago", new Pago());
+		model.addAttribute("clientes", clientes);
+
+		return "crearPago";
+	}
 
     @RequestMapping(path = "/ListarPagos", method = RequestMethod.GET)
     public ModelAndView mostrarListarPagos() {
@@ -40,27 +58,21 @@ public class PagoController {
     }
 
     @RequestMapping(path = "/CrearPago", method = RequestMethod.POST)
-    public ModelAndView crearPago(Pago pago) {
+    public ModelAndView crearPago(@RequestParam("clienteid") Integer clienteid,
+            @RequestParam("monto") Integer monto,
+            @RequestParam("fechapago") String fechapago,
+            @RequestParam("detalle") String detalle) {
+    	System.out.println(clienteid);
+    	System.out.println(monto);
+    	System.out.println(fechapago);
+    	System.out.println(detalle);
+    	Pago pago = new Pago(clienteid, monto, fechapago, detalle);
         try {
-            // Validar la fecha antes de guardar el pago en la base de datos
-            if (!pago.validarFecha()) {
-                ModelAndView errorModelAndView = new ModelAndView("crearPago");
-                errorModelAndView.addObject("errorMessage", "La fecha de pago es inválida. Por favor, introduzca una fecha válida (DD/MM/AAAA).");
-                return errorModelAndView;
-            }
+            cs.crearPagos(pago); // Guardamos el pago en la base de datos (asegúrate de que el método crearPagos solo reciba la instancia de pago)
 
-            String detalle = pago.mostrarDetalle(); // Obtenemos el detalle utilizando el método mostrarDetalle()
-            pago.setDetalle(detalle); // Establecemos el detalle en el objeto pago
-            cs.crearPagos(pago, detalle); // Guardamos el pago en la base de datos (asegúrate de que el método crearPagos solo reciba la instancia de pago)
-
-            // Obtener la lista de Pagos en formato JSON desde el servicio RestUsuarioController
-            List<Pago> PagosJson = restUsuarioController.getTresPagos();
-
-            // Agregar la lista de Pagos JSON al modelo para que esté disponible en la vista listaPagosJson.jsp
-            ModelAndView jsonModelAndView = new ModelAndView("listarPagosJson");
-            jsonModelAndView.addObject("PagosJson", PagosJson);
-
-            return jsonModelAndView;
+            return new ModelAndView("redirect:/ListarPagos");
+      
+            
         } catch (Exception e) {
             e.printStackTrace();
             // Manejar el error adecuadamente, redirigir a una página de error o mostrar un mensaje de error en la vista.
