@@ -21,10 +21,15 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
 <style>
-/* Estilos personalizados */
+body {
+	background-image: url("/modulo6/res/img/imagen3.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 </style>
 </head>
 <body>
+
 	<%@ include file='navbar.jsp'%>
 	<img class="imagen-zoom" src="/modulo6/res/img/logogrupo4.png"
 		alt="Logo de la empresa">
