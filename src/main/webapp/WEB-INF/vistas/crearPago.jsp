@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -25,9 +26,13 @@ body {
 	<div class="contacto" style="display: flex; justify-content: center;">
 		<form id="formularioPago" action="/modulo6/CrearPago" method="post" onsubmit="return enviarFormulario(event)">
 			<h1 class="tituloContacto">Registro de Pagos</h1> 
-			<label for="clienteid">Ingrese ID del Cliente:</label><br> 
-			<input type="text" id="clienteid" name="clienteid" title="Campo Obligatorio / Debe Introducir un Valor menor a 99.999.999 / sin puntos">
-			<br> <span id="clienteidValidationMessage" style="color: red;"></span> <br><br>
+			<label for="clienteId">Seleccionar Cliente:</label>
+                <br>
+                <select name="clienteid">
+                    <c:forEach var="cliente" items="${clientes}">
+                        <option value="${cliente.id}">${cliente.nombre}</option>
+                    </c:forEach>
+                </select> <br><br>
 			<label for="monto">Ingrese el Monto:</label><br> 
 			<input type="text" id="monto" name="monto" title="Campo Obligatorio / Debe Introducir un Valor Numérico.">
 			<br> <span id="montoValidationMessage" style="color: red;"></span> <br><br> 

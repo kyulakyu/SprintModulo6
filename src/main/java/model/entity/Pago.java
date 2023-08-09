@@ -4,8 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
-import java.util.Calendar;
 
 @Entity
 @Table(name = "pagos")
@@ -19,7 +17,7 @@ public class Pago {
 	@Column(name = "monto")
 	private int monto;
 	@Column(name = "fecha_pago")
-	private Date fechapago;
+	private String fechapago;
 	@Column(name = "detalle")
 	private String detalle;
 
@@ -27,10 +25,8 @@ public class Pago {
 	public Pago() {
 	}
 
-	public Pago(int identificador, Integer clienteid, int monto, Date fechapago, String detalle) {
+	public Pago(Integer clienteid, Integer monto, String fechapago, String detalle) {
 		super();
-
-		this.identificador = identificador;
 		this.clienteid = clienteid;
 		this.monto = monto;
 		this.fechapago = fechapago;
@@ -58,22 +54,6 @@ public class Pago {
 		}
 	}
 
-	public Integer getclienteid() {
-		return clienteid;
-	}
-
-	public boolean setclienteid(Integer clienteid) {
-
-		if (clienteid < 99999999) {
-			this.clienteid = clienteid;
-			return true;
-
-		} else {
-
-			return false;
-		}
-	}
-
 	public int getMonto() {
 		return monto;
 	}
@@ -94,27 +74,21 @@ public class Pago {
 			return false;
 		}
 	}
-	
-	public Date getfechapago() {
+
+	public Integer getClienteid() {
+		return clienteid;
+	}
+
+	public String getFechapago() {
 		return fechapago;
 	}
 
-	public boolean validarFecha() {
-	    if (fechapago != null) {
-	        Calendar calendar = Calendar.getInstance();
-	        calendar.setTime(fechapago);
-	        int dia = calendar.get(Calendar.DAY_OF_MONTH);
-	        int mes = calendar.get(Calendar.MONTH) + 1; // Los meses en Calendar van de 0 a 11
-	        int anio = calendar.get(Calendar.YEAR);
-	        
-	        // Verificar que el dia, mes y año estén dentro de los límites válidos
-	        boolean diaValido = dia >= 1 && dia <= 31;
-	        boolean mesValido = mes >= 1 && mes <= 12;
-	        boolean anioValido = anio >= 1900 && anio <= 9999;
-	        
-	        return diaValido && mesValido && anioValido;
-	    }
-	    return false; // La fecha es nula, considerarla inválida
+	public void setClienteid(Integer clienteid) {
+		this.clienteid = clienteid;
+	}
+
+	public void setFechapago(String fechapago) {
+		this.fechapago = fechapago;
 	}
 
     public String getDetalle() {
@@ -124,8 +98,4 @@ public class Pago {
     public void setDetalle(String detalle) {
         this.detalle = detalle;
     }
-
-	public String mostrarDetalle() {
-		return "El cliemte " + clienteid + "pagó " + "$" + monto + " del día " + fechapago + "por " + detalle;
-	}
 }

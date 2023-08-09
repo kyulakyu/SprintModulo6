@@ -43,7 +43,7 @@
 						<td>${pago.identificador}</td>
 						<td>${pago.clienteid}</td>
 						<td>${pago.monto}</td>
-						<td><fmt:formatDate value="${pago.fechapago}" pattern="dd/MM/yyyy"/></td>
+						<td>${pago.fechapago}</td>
 						<td>${pago.detalle}</td>
 					</tr>
 				</c:forEach>
