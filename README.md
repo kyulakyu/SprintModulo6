@@ -1,94 +1,36 @@
-Grupo 4. Integrantes:
+# Sprint Final M6
+
+## Grupo 4. Integrantes: :briefcase:
+
 				Camila Fabbroni - Cinthya Caldera - Sabina Leal - Sebastian
 				Fernandez - Manuel Chavez - Juan Barrientos. Todos los derechos
 				reservados
 
- 
-    https://github.com/cinthyaccc
-    https://github.com/CamilaF1985
-    https://github.com/kyulakyu
-    https://github.com/SebastianFdezT
-    https://github.com/ManuelChavezSalazar
-    https://github.com/JuanC4m1l0B
+ ## Repositorios
+    https://github.com/kyulakyu/SprintModulo6.git (PRINCIPAL)
+    https://github.com/cinthyaccc/SprintModulo6.git
+    https://github.com/CamilaF1985/SprintModulo6.git
+    https://github.com/SebastianFdezT/SprintModulo6.git
+    https://github.com/ManuelChavezSalazar/SprintModulo6.git
+    https://github.com/JuanC4m1l0B/SprintModulo6.git
     
+CONTEXTO
 
-Una empresa de asesorías en prevención de riesgos necesita contar con un sistema de información
-que le permita administrar los principales procesos que se llevan a cabo en ella día a día.
+Una empresa de asesorías en prevención de riesgos necesita contar con un sistema de información que le permita administrar los principales procesos que se llevan a cabo en ella día a día.
 Hasta el momento se han definido las siguientes funcionalidades en el sistema:
-ID Nombre Detalle Actor(es)
-1 Inicio Página de inicio del portal con Cliente /
-información relevante del proyecto Administrativo /
-que se está realizando. Profesional
-2 Contacto Formulario de contacto para realizar Cliente
 
-consultas.
-
-3 Crear Capacitación Formulario para crear una Cliente
-
-capacitación en el sistema.
-
-4 Listar Capacitaciones Listado de capacitaciones registradas. Cliente
-5 Listado de Usuarios Listado con los usuarios existentes en Administrativo
-
-plataforma.
-
-6 Crear Usuario Formulario que permitirá crear un Administrativo
-
-usuario en sistema.
-
-7 Editar Cliente Formulario que permite modificar los Administrativo
-
-datos de un usuario de tipo cliente.
-
-8 Editar Administrativo Formulario que permite modificar los Administrativo
-
-datos de un usuario de tipo
-administrativo.
-
-9 Editar Profesional Formulario que permite modificar los Administrativo
-
-datos de un usuario de tipo
-profesional.
-
-10 Listado Visitas Lista de todas las visitas realizadas a Profesional
-
-cada uno de los clientes. Además,
-posee un formulario que permite
-agregar nuevas visitas a sistema.
-
-11 Responder checklist Listado de chequeos de una visita. Profesional
-12 Listado Pago Lista de todos los pagos realizados por Administrativo
-
-los clientes.
-
-13 Crear Pago Permitirá agregar un pago al sistema. Administrativo
-14 Listado Asesorías Lista con las asesorías realizadas hasta Profesional
-
-el momento.
-
-15 Crear Asesorías Contiene un formulario para agregar Profesional
-
-una nueva asesoría.
-
-16 Reportes Despliega reportes específicos. Profesional
-17 Administrar Administración de asistentes a una Cliente
-Asistentes capacitación; incluye listarlos, poder
-agregar asistentes y eliminarlos.
-
-18 Login Contendrá un acceso a un usuario al Cliente /
-portal a través de un RUT de usuario y Administrativo /
-una clave. Profesional
-19 Gestionar accidentes Listado con todos los accidentes Cliente
-registrados en plataforma. Además,
-permite editarlos, agregar uno nuevo y
-eliminarlos. En esta sección cada
-cliente administra sus propios
-accidentes.
-
-20 Administrar chequeos Permite mostrar los distintos Administrativo
-
-chequeos realizados a cada cliente en
-una visita a terreno, y permite agregar
-uno nuevo, y cambiar su estado.
-
-
+1- Inicio: Página de inicio del portal con información relevante del proyecto que se está realizando. Donde los actores son Administrativo, Cliente, Administrativo, Profesional.
+2- Contacto: Formulario de contacto para realizar consultas. Donde el actor es Cliente.
+3- Crear Capacitación: Formulario para crear una capacitación en el sistema. Donde el actor es Cliente.
+4- Listar Capacitaciones: Listado de capacitaciones registradas. Donde el actor es Cliente.
+5- Listado de Usuarios: Listado con los usuarios existentes en plataforma. Donde el actor es Administrativo.
+6- Crear Usuario: Formulario que permitirá crear un usuario en sistema. Donde el actor es Administrativo.
+7- Editar Cliente: Formulario que permite modificar los datos de un usuario de tipo cliente. Donde el actor es Administrativo.
+8- Editar Administrativo: Formulario que permite modificar los datos de un usuario de tipo administrativo. Donde el actor es Administrativo.
+9- Editar Profesional: Formulario que permite modificar los datos de un usuario de tipo profesional. Donde el actor es Administrativo.
+10- Listado Visitas: Lista de todas las visitas realizadas a cada uno de los clientes. Además, posee un formulario que permite agregar nuevas visitas a sistema. Donde el actor es Profesional.
+11- Responder checklist: Listado de chequeos de una visita. Donde el actor es Profesional.
+12- Listado Pago: Lista de todos los pagos realizados por los clientes. Donde el actor es Administrativo.
+13- Crear Pago: Permitirá agregar un pago al sistema. Donde el actor es Administrativo.
+14- Listado Asesorías: Lista con las asesorías realizadas hasta el momento. Donde el actor es Profesional.
+15- Crear Asesorías: Contiene un formulario para agregar una nueva asesoría. Donde el actor es Profesional.
