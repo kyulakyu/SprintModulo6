@@ -49,5 +49,7 @@ Hasta el momento se han definido las siguientes funcionalidades en el sistema:
 
 # Contraseñas
 administrativo = 1234
+
 cliente = 061273
+
 profesional = 1234
