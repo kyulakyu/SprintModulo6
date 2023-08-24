@@ -46,3 +46,8 @@ Hasta el momento se han definido las siguientes funcionalidades en el sistema:
 14- Listado Asesorías: Lista con las asesorías realizadas hasta el momento. Donde el actor es Profesional.
 
 15- Crear Asesorías: Contiene un formulario para agregar una nueva asesoría. Donde el actor es Profesional.
+
+# Contraseñas
+administrativo = 1234
+cliente = 061273
+profesional = 1234
